@@ -41,7 +41,8 @@ export const generateMentorResponse = async (
   image?: string,
   subject?: string
 ): Promise<string> => {
- // COLLE CE BLOC À LA PLACE :
+  
+ // Debut Modification apportée :
 const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
 if (!apiKey) {
@@ -49,6 +50,7 @@ if (!apiKey) {
 }
 
 const ai = new GoogleGenAI({ apiKey: apiKey });
+  // fin de la Modification apportée :
   
   const systemInstruction = `
     Tu es EDUCTOME, un mentor pédagogique d'élite pour les élèves en classes d'examen (Côte d'Ivoire et International).
