@@ -41,11 +41,14 @@ export const generateMentorResponse = async (
   image?: string,
   subject?: string
 ): Promise<string> => {
-  if (!process.env.API_KEY) {
-    return "Erreur de configuration: API Key manquante.";
-  }
+ // COLLE CE BLOC À LA PLACE :
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+if (!apiKey) {
+  return "Erreur de configuration: API Key manquante.";
+}
+
+const ai = new GoogleGenAI({ apiKey: apiKey });
   
   const systemInstruction = `
     Tu es EDUCTOME, un mentor pédagogique d'élite pour les élèves en classes d'examen (Côte d'Ivoire et International).
