@@ -1,5 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <style>
+  /* Force l'application à occuper tout l'écran, même avec la barre d'adresse mobile */
+  html, body, #root {
+    height: 100% !important;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Empêche les rebonds bizarres sur iPhone/Android */
+  }
+
+  /* Cible le conteneur principal pour qu'il ne se rétracte plus */
+  main, .app-container, div[class*="min-h-screen"] {
+    min-height: 100dvh !important; /* "dvh" est l'unité dynamique pour mobile */
+    display: flex;
+    flex-direction: column;
+  }
+</style>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
